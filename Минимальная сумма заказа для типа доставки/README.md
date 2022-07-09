@@ -1,13 +1,40 @@
+  
 
-## Скрипты для Tilda
+# Минимальная сумма заказа для типа доставки
 
-Код из файлов js необходимо завернуть в теги < script></ script>
+  
 
-Код из файлов css необходимо завернуть в теги < style></ style>
+Код из файла js необходимо завернуть в тег < script></ script> и вставить в html блок T123
 
-Код из файлов html вставляется как есть
+  
 
- 
+пример кода
+
+    <script>
+    //Название типа доставки
+    let  myDeliveryName = 'Самовывоз'
+    //Минимальная сумма заказа для нашего типа доставки
+    let  myMinOrder = 0
+    
+    let  minorder = tcart_minorder
+    let  delivery = document.querySelector('.t-radio__wrapper-delivery')
+    let  minlabel = document.querySelector('.t706__minimal')          
+    delivery.addEventListener('change', function(){
+    let  delivery_val = delivery.querySelector('input:checked').value
+    
+    if (delivery_val == myDeliveryName){
+	    tcart_minorder = myMinOrder
+	    minlabel.style.display = 'none'
+    }else{
+	    tcart_minorder = minorder
+	    minlabel.style.display = 'block'    
+    }
+    
+    })
+    </script>
+
 ## Контакты
+
+  
 
 [Telegram @storysmm](https://t.me/storysmm)
