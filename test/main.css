@@ -1,6 +1,36 @@
-body{
-    background-color: rgb(178, 178, 178);
+.uc-form{
+    display: none;
 }
-.rotate .tn-atom{
-    background-color: #b92828!important;
+.uc-form .t-cover,.uc-login .t-cover{
+    position: absolute;
+    z-index: 9999;
+}
+.uc-form .t-bgimg{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Виджет whatsApp */
+.bh-widget-page__button-main {
+width: 56px;
+height: 56px;
+box-shadow: 0px 4px 8px rgb(0 0 0 / 16%);
+}
+.bh-w-button-whatsapp-chat {
+background-color: #25d366;
+}
+.bh-w-button {
+align-items: center;
+cursor: pointer;
+position: fixed;
+right: 20px;
+bottom: 20px;
+z-index: 99999999999;
+border-radius: 50%;
+justify-content: center;
+display: flex;
+}
+.bh-w-button__icon{
+    width: 50%;
 }
