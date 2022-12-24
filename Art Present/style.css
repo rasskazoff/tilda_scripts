@@ -35,14 +35,29 @@
 }
 
 /* анимация кнопок */
-.button__border,.button__main{
-    transition: 0.2s;
+.animBtn .tn-atom:after {
+    width: calc( 100% - 4px );
+    height: calc( 100% - 4px );
+    border: 2px solid #FF823A;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 8px;
+    transform: matrix(1.08, 0, 0, 1, 0, 0) rotate(-4.56deg);
 }
-.button__animate{
-    -webkit-transform: rotate(0) rotateY(50deg)!important;
-    -moz-transform: rotate(0) rotateY(50deg)!important;
-    transform: rotate(0) rotate3d(10, 10, -2.8, 45deg)!important; 
+.animBtn .tn-atom:hover, .animBtn .tn-atom:active{
+	background-color: #FF823A!important;
 }
-.button__animate-end{
-    background-color: #ff823a!important;
+.animBtn .tn-atom:hover:after, .animBtn .tn-atom:active:after{
+	transform: inherit;
+}
+
+/* до / после */
+#beforeafter .t410__col{
+	padding: 0;
+}
+#beforeafter .t-beforeafter{
+	height: 100%;
+	position: absolute;
 }

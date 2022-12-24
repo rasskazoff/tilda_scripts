@@ -94,47 +94,12 @@ try {
     })
 }catch(err){console.log(err)}
 
-/*
-//анимация кнопок
+// до/после 
 try {
     t_ready(()=>{
-        let btn = document.querySelectorAll('#rec520934227 [data-elem-type="shape"] .tn-atom')
-        let transition = 1000/3
-        let button__border = []
-        let button__main = []
-        let index = 1
+        const slider = document.querySelector('.uc-beforeafter')
+        const sliderNew = document.querySelector('#beforeafter')
 
-        btn.forEach((el)=>{
-            if (window.getComputedStyle(el).borderColor == 'rgb(255, 130, 58)'){
-                el.classList.add('button__border')
-                button__border.push(el)
-            }
-            if (window.getComputedStyle(el).backgroundColor == 'rgb(100, 101, 106)'){
-                el.classList.add('button__main')
-                button__main.push(el)
-            }
-        })
-            
-        button__border.forEach((el)=>{
-            el.addEventListener('mouseover', (el) => {
-                el.target.classList.add('button__animate')
-                index = window.getComputedStyle(el.target.closest('.t396__elem')).zIndex
-                el.target.closest('.t396__elem').style.zIndex = index - 2
-            })
-        })
-
-        button__main.forEach((el)=>{
-            el.addEventListener('mouseover', (el) => {
-                el.target.classList.add('button__animate-end')
-            })
-            el.addEventListener('mouseout', (el) => {
-                el.target.classList.remove('button__animate-end')
-
-                let button__animate = document.querySelector('.button__animate')
-                button__animate.closest('.t396__elem').style.zIndex = index
-                button__animate.classList.remove('button__animate')
-            })
-        })
+        sliderNew.append(slider)
     })
 }catch(err){console.log(err)}
-*/
