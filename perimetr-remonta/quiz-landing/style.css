@@ -1,3 +1,109 @@
 #quiz .t835__col{
     padding: 0;
+    margin: 0;
+}
+/**/
+    #quiz{
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+    }
+    #quiz .t835__quiz{
+        position: absolute;
+        min-height: 100%;
+        left: 0;
+    }
+    #quiz .t835__quiz-form-wrapper{
+        width: calc( 100% - 90px );
+    }
+    #quiz .t835__quiz-wrapper{
+        position: unset;
+    }
+    #quiz .t835__quiz .t-img-select__indicator {
+        background-position: center;
+    }
+    #quiz .t835__quiz-form-wrapper{
+        overflow: scroll;
+        position: absolute;
+        height: calc( 100% - 175px );
+    }
+    @media screen and (max-width: 640px){
+        #quiz .t835__quiz-form-wrapper{
+            height: calc( 100% - 235px );
+        }
+    }
+   
+    #quiz .t835__btn-wrapper{
+        position: absolute;
+        bottom: 20px;
+        width: calc( 100% - 90px );
+    }
+    #quiz .t-form__submit{
+        position: inherit!important;
+    }
+/**/
+@media (max-width: 960px){
+    .uc-quiz .t835{
+        background: linear-gradient(90deg, rgba(58,88,141,1) 0%, rgba(60,107,194,1) 100%);
+    }
+    .uc-quiz .t835 .t-col{
+        padding: 5px 10px 40px;
+    }
+}
+@media (max-width: 640px){
+    .uc-quiz .t835__quiz{
+        max-width: 480px;
+        margin: auto;
+    }
+}
+@media (max-width: 480px){
+    .uc-quiz .t835__quiz{
+        width: 320px;
+    }
+    .uc-quiz .t835 .t-col{
+        padding: 5px 0 40px;
+    }
+}
+
+@media (max-width: 640px){
+    #timerZeroBlock .timer-separator{
+        padding: 0px 10px!important;
+    }
+    #timerZeroBlock>div{
+        min-width: max-content!important;
+    }
+    #timerZeroBlock [id*="timer-number"]{
+        font-size: 40px!important;
+    }
+    #timerZeroBlock .timer-flipchart-top{
+        padding-left: 6px!important;
+        padding-right: 6px!important;
+    }
+    #timerZeroBlock .timer-flipchart-face{
+        font-size: 40px!important;
+    }
+}
+@media (max-width: 480px){
+    #timerZeroBlock .timer-separator{
+        padding: 0px 5px!important;
+    }
+    #timerZeroBlock .timer-flipchart-bounding, #timerZeroBlock .timer-flipchart-back, #timerZeroBlock .timer-flipchart-top, #timerZeroBlock .timer-flipchart-front, #timerZeroBlock .timer-flipchart-bottom{
+        padding-left: 8px!important;
+        padding-right: 8px!important;
+    }
+}
+
+.uc-fixMenu{
+    display: none;
+}
+.uc-fixMenu .t396__artboard{
+    position: fixed;
+    z-index: 999;
+    transition: .2s;
+}
+.uc-fixMenu.fixed .t396__artboard{
+    height: 0!important;
+}
+.uc-fixMenu.pinned{
+    display: block;
 }
