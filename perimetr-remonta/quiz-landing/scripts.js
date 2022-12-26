@@ -19,12 +19,15 @@ try {
         menu.classList.add('pinned')
 
         const showMenu = ()=>{
+            console.log(window.pageYOffset)
             if(window.pageYOffset > 333){
                 setTimeout(()=>{
                     menu.classList.remove('fixed')
                 },100)
             }else{
-                menu.classList.add('fixed')
+                setTimeout(()=>{
+                    menu.classList.add('fixed')
+                },100)
             }
         }
         showMenu()
