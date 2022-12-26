@@ -18,8 +18,7 @@ try {
         menu.classList.add('fixed')
         menu.classList.add('pinned')
 
-        const showMenu = ()=>{
-            console.log(window.pageYOffset)
+        const showMenu = ()=>{            
             if(window.pageYOffset > 333){
                 setTimeout(()=>{
                     menu.classList.remove('fixed')
