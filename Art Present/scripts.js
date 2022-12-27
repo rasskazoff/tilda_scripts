@@ -104,10 +104,16 @@ try {
 
 //яндекс карта
 try {
-    const map = document.querySelector('#map')
-    const newMap = document.createElement('iframe')
-    newMap.src = 'https://yandex.ru/map-widget/v1/?um=constructor%3Adf7d39d612e3624e639363bdc26080d31d89d0bf1e3a5a6bec1b5bfefb7b0e16&amp;source=constructor'
-    map.append(newMap)
+    let yaMapRender = false
+    document.addEventListener("scroll", () => {
+        if(!yaMapRender){
+            const map = document.querySelector('#map')
+            const newMap = document.createElement('iframe')
+            newMap.src = 'https://yandex.ru/map-widget/v1/?um=constructor%3Adf7d39d612e3624e639363bdc26080d31d89d0bf1e3a5a6bec1b5bfefb7b0e16&amp;source=constructor'
+            map.append(newMap)
+            yaMapRender = true
+        }
+    })
 }catch(err){console.log(err)}
 
 //анимация бордюра кнопки
