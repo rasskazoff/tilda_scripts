@@ -112,7 +112,7 @@ try {
 
 //анимация бордюра кнопки
 try {
-    const button = document.querySelectorAll('.callback__form .t-submit, .animBtn .tn-atom')
+    const button = document.querySelectorAll('.uc-popup__zero .t-submit, .animBtn .tn-atom')
     button.forEach((e)=>{
         e.classList.add('border__animate')
     })
