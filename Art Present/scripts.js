@@ -39,67 +39,115 @@ return t(r),t(w),t(T),t(L),t(k),t(A),t(C),t(S),t(H),t(O),t(j),b})
 }catch(err){console.log(err)}
 
 function t_ready(e){"loading"!=document.readyState?e():document.addEventListener("DOMContentLoaded",e)}
-
+t_ready(()=>{
 //текст вокруг кнопки 
 try {
-    t_ready(()=>{
-        const container = document.querySelector('.animText')
-        container.querySelector('.tn-atom').setAttribute('data-splitting','')
+    const container = document.querySelector('.animText')
+    container.querySelector('.tn-atom').setAttribute('data-splitting','')
 
-        const split = Splitting({
-            whitespace: true
-        })
-        
-        const update = () => {
-            const { el } = split[0]
-            const originalPathWidth = el.clientWidth
-            const originalPathHeight = el.clientHeight
-            
-            const m = container.clientWidth / originalPathWidth
-            const containerLeft = container.getBoundingClientRect().left
-            const elLeft = el.getBoundingClientRect().left
-            
-            if (m === 1) return
-            
-            el.style.setProperty('--x', m)
-            
-            if (container.clientWidth < originalPathWidth) {
-                el.style.setProperty('--o', 'left')
-            } else {
-                el.style.setProperty('--o', 'center')
-            }
-        }
-        
-        const observer = new ResizeObserver(update)
-        observer.observe(container)
+    const split = Splitting({
+        whitespace: true
     })
+    
+    const update = () => {
+        const { el } = split[0]
+        const originalPathWidth = el.clientWidth
+        const originalPathHeight = el.clientHeight
+        
+        const m = container.clientWidth / originalPathWidth
+        const containerLeft = container.getBoundingClientRect().left
+        const elLeft = el.getBoundingClientRect().left
+        
+        if (m === 1) return
+        
+        el.style.setProperty('--x', m)
+        
+        if (container.clientWidth < originalPathWidth) {
+            el.style.setProperty('--o', 'left')
+        } else {
+            el.style.setProperty('--o', 'center')
+        }
+    }
+    
+    const observer = new ResizeObserver(update)
+    observer.observe(container)
 }catch(err){console.log(err)}
 
 //фиксированное меню
 try {
-    t_ready(()=>{
-        const menuBlock = document.querySelector('.uc-fixMenu')
-        const menu = menuBlock.querySelector('.t396__artboard')
+    const menuBlock = document.querySelector('.uc-fixMenu')
+    const menu = menuBlock.querySelector('.t396__artboard')
 
-        let menuH = window.getComputedStyle(menu).height
-        menuBlock.style.height = menuH
+    let menuH = window.getComputedStyle(menu).height
+    menuBlock.style.height = menuH
 
-        document.addEventListener("scroll", () => {
-            if(window.pageYOffset > 333){
-                menu.classList.add('fixed')
-            }else{
-                menu.classList.remove('fixed')
-            }
-        })
+    document.addEventListener("scroll", () => {
+        if(window.pageYOffset > 333){
+            menu.classList.add('fixed')
+        }else{
+            menu.classList.remove('fixed')
+        }
     })
+}catch(err){console.log(err)}
+
+//бургер меню
+try {
+    const menu = document.querySelector('.uc-menuMob')
+    const menuButton = document.querySelector('[href="#menu"]')
+    const fixMenu = document.querySelector('.uc-fixMenu .t396__artboard')
+
+    menuButton.addEventListener('click',()=>{
+        menu.classList.toggle('active')
+        fixMenu.classList.toggle('active')
+    })
+}catch(err){console.log(err)}
+
+//яндекс карта
+try {
+    const map = document.querySelector('#map')
+    const newMap = document.createElement('iframe')
+    newMap.src = 'https://yandex.ru/map-widget/v1/?um=constructor%3Adf7d39d612e3624e639363bdc26080d31d89d0bf1e3a5a6bec1b5bfefb7b0e16&amp;source=constructor'
+    map.append(newMap)
+}catch(err){console.log(err)}
+
+//анимация бордюра кнопки
+try {
+    const button = document.querySelectorAll('.callback__form .t-submit, .animBtn .tn-atom')
+    button.forEach((e)=>{
+        e.classList.add('border__animate')
+    })
+
+
+    
 }catch(err){console.log(err)}
 
 // до/после 
 try {
-    t_ready(()=>{
-        const slider = document.querySelector('.uc-beforeafter')
+    const slider = document.querySelector('.uc-beforeafter')
+    if(slider){
         const sliderNew = document.querySelector('#beforeafter')
-
         sliderNew.append(slider)
-    })
+    }
 }catch(err){console.log(err)}
+
+// попап в зеро
+try {
+    const zeroPopup = (popupName) => {
+        const popup = document.querySelector(`[data-tooltip-hook="#${popupName}"] .t-popup__container`)
+        const zero = document.querySelector(`.uc-${popupName}`)
+        
+        let popupID = popup.closest('.t-rec').getAttribute('id').replace('rec','')
+        zero.querySelector('[href="#close"]').addEventListener('click',()=>{
+            t390_closePopup(popupID)
+        })
+
+        popup.append(zero)
+    }
+
+    let popup__callback = 'popup__callback'
+    let popup__request= 'popup__request'
+    zeroPopup(popup__callback)
+    zeroPopup(popup__request)
+
+}catch(err){console.log(err)}
+})

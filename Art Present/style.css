@@ -24,18 +24,52 @@
 	}
 }
 
-/* фиксированное меню и стили активных пунктов меню */
-.fixed{
+/* шапка / фиксированное меню и стили активных пунктов меню */
+.uc-fixMenu{
+	position: relative;
+	z-index: 999;
+	box-shadow: 0px 30px 70px rgba(2, 13, 46, 0.04);
+}
+.uc-fixMenu .fixed , .uc-fixMenu .active{
     position: fixed;
     z-index: 999;
+	box-shadow: 0px 30px 70px rgba(2, 13, 46, 0.04);
 }
-.t-active{
+.nav__link .t-active{
     color: #ff823a!important;
     font-weight: 600;
 }
+.uc-menuMob{
+	opacity: 0;
+}
+.uc-menuMob.active{
+	opacity: 1;
+	position: fixed;
+    z-index: 998;
+	width: 100%;
+}
+.uc-menuMob .t396__artboard{
+	height: 627.3px;
+    top: -100vh;
+    position: absolute;
+    transition: top 0.5s ease 0s;
+}
+.uc-menuMob.active .t396__artboard{
+	top: 0;
+}
+.uc-menuMob .t396__filter{
+	opacity: 0;
+	transition: all 0.5s ease 0s;
+}
+.uc-menuMob.active .t396__filter{
+	position: fixed;
+	height: 100vh!important;
+	opacity: 1;
+	backdrop-filter: blur(7.5px);
+}
 
 /* анимация кнопок */
-.animBtn .tn-atom:after {
+.border__animate::after {
     width: calc( 100% - 4px );
     height: calc( 100% - 4px );
     border: 2px solid #FF823A;
@@ -46,11 +80,18 @@
     border-radius: 8px;
     transform: matrix(1.08, 0, 0, 1, 0, 0) rotate(-4.56deg);
 }
-.animBtn .tn-atom:hover, .animBtn .tn-atom:active{
+.border__animate:hover, .border__animate:active{
 	background-color: #FF823A!important;
 }
-.animBtn .tn-atom:hover:after, .animBtn .tn-atom:active:after{
+.border__animate:hover:after, .border__animate:active:after{
 	transform: inherit;
+}
+
+/* карта */
+#map, #map iframe{
+	width: 100%;
+	height: 100%;
+	border: 0;
 }
 
 /* до / после */
@@ -60,4 +101,58 @@
 #beforeafter .t-beforeafter{
 	height: 100%;
 	position: absolute;
+}
+
+/* попап форма обратного звонка */
+.uc-popup__zero .t-popup__container{
+	background: unset;
+	margin: 25px auto!important;
+}
+.uc-popup__zero .t-popup{
+	padding: 0!important;
+}
+.uc-popup__zero .t-popup__block-close{
+	display: none;
+}
+.uc-popup__zero .t-img-select__control{
+	width: 140px!important;
+}
+.uc-popup__zero .t-img-select__indicator{
+	height: 40px;
+	padding: 0!important;
+	background-size: contain;
+    background-repeat: no-repeat;
+	box-shadow: none;
+}
+.uc-popup__zero .t-checkbox__indicator{
+	background: #FF823A;
+    border-color: #FF823A;
+    border-radius: 5px;
+}
+.uc-popup__zero .t-checkbox__indicator:after{
+	border-color: #fff;
+}
+.uc-popup__zero .t-img-select__indicator:after{
+	background-color: #FF823A!important;
+}
+.uc-popup__zero .t-input-group_uw{
+	display: flex;
+    align-items: center;
+}
+.uc-popup__zero .t-input-group_uw .t-input-block{
+	margin-left: auto;
+}
+.uc-popup__zero .t-upwidget-container__button,
+.uc-popup__zero .t-upwidget-container__button-indiv{
+	background-color: #fff!important;
+    color: #0B1B35!important;
+    border: 1px solid #0B1B35;
+	border-radius: 8px;
+}
+
+/* фиксированная кнопка обратного звонка на мобильной версии */
+.uc-button__callback .t396__artboard{
+	position: fixed;
+    bottom: 5px;
+    z-index: 997;
 }
