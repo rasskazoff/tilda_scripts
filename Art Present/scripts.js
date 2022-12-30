@@ -1,6 +1,13 @@
 function t_ready(e){"loading"!=document.readyState?e():document.addEventListener("DOMContentLoaded",e)}
 t_ready(()=>{
-
+//отложенное подключение css
+try {
+    const style = document.createElement('link')
+    style.href = 'https://rasskazoff.github.io/tilda_scripts/Art Present/style.css'
+    style.rel = 'stylesheet'
+    document.head.appendChild(style)
+ }catch(err){console.log(err)}
+ 
 //фиксированное меню
 try {
     const menuBlock = document.querySelector('.uc-fixMenu')

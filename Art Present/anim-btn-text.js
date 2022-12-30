@@ -40,6 +40,14 @@ return t(r),t(w),t(T),t(L),t(k),t(A),t(C),t(S),t(H),t(O),t(j),b})
 
 function t_ready(e){"loading"!=document.readyState?e():document.addEventListener("DOMContentLoaded",e)}
 t_ready(()=>{
+//отложенное подключение css
+try {
+   const style = document.createElement('link')
+   style.href = 'https://rasskazoff.github.io/tilda_scripts/Art Present/anim-btn-text.css'
+   style.rel = 'stylesheet'
+   document.head.appendChild(style)
+}catch(err){console.log(err)}
+
 //текст вокруг кнопки 
 try {
     const container = document.querySelector('.animText')

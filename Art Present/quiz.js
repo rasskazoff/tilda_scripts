@@ -1,5 +1,12 @@
 function t_ready(e){"loading"!=document.readyState?e():document.addEventListener("DOMContentLoaded",e)}
 t_ready(()=>{
+//отложенное подключение css
+try {
+    const style = document.createElement('link')
+    style.href = 'https://rasskazoff.github.io/tilda_scripts/Art Present/quiz.css'
+    style.rel = 'stylesheet'
+    document.head.appendChild(style)
+ }catch(err){console.log(err)}
 /* калькулятор */
 try {
     const title = document.querySelectorAll('.uc-quiz .t-input-title')
