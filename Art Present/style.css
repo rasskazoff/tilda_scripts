@@ -1,28 +1,3 @@
-/* текст вокруг кнопки */
-.animText .tn-atom {
-	position: relative;
-	transform: scale(var(--x, 1));
-	transform-origin: var(--o, center);
-	margin: 0 auto;
-    width: 560px;
-	height: 10px;
-    transform: translate(-14px, -19px);
-}
-
-.char {
-	--i: calc(50% / var(--char-total));
-	offset-path: path('M38,26 l198,0 q37,0 41,37 q-4,34 -40,37 l-199,-1 q-33,-1 -37,-37 q3,-33 36,-36 M38,26 l198,0 q37,0 41,37 q-4,34 -40,37 l-199,-1 q-33,-1 -37,-37 q3,-33 36,-36');
-	offset-distance: calc(var(--char-index) * 9.08px);
-	position: absolute;
-	animation: move 15000ms infinite linear ;
-}
-
-@keyframes move {
-	100% {
-		--i: 1.2rem;
-		offset-distance: calc((var(--char-index) * 0.555rem) + 40rem);
-	}
-}
 
 /* шапка / фиксированное меню и стили активных пунктов меню */
 .uc-fixMenu{
@@ -80,11 +55,18 @@
     border-radius: 8px;
     transform: matrix(1.08, 0, 0, 1, 0, 0) rotate(-4.56deg);
 }
-.border__animate:hover, .border__animate:active{
+.border__animate:hover{
 	background-color: #FF823A!important;
 }
-.border__animate:hover:after, .border__animate:active:after{
+.border__animate:hover:after{
 	transform: inherit;
+}
+.animBtn__white .border__animate::after {
+	border-color: #ffffff;
+}
+.animBtn__white .border__animate:hover{
+	background-color: #ffffff!important;
+	color: #000000!important;
 }
 
 /* карта */
@@ -93,16 +75,6 @@
 	height: 100%;
 	border: 0;
 }
-
-/* до / после */
-#beforeafter .t410__col{
-	padding: 0;
-}
-#beforeafter .t-beforeafter{
-	height: 100%;
-	position: absolute;
-}
-
 /* попап форма обратного звонка */
 .uc-popup__zero .t-popup__container{
 	background: unset;
@@ -155,4 +127,33 @@
 	position: fixed;
     bottom: 5px;
     z-index: 997;
+}
+
+/* показать еще */
+.uc-more__hidden{
+	display: none;
+}
+.uc-more__hidden.show{
+	display: block;
+}
+
+/* попап спасибо */
+.t-form-success-popup svg {
+    display: none;
+}
+.t-form-success-popup__wrapper{
+	border-radius: 20px!important;
+}
+.t-form-success-popup__wrapper:before {
+    content: ' ';
+    width: 85px;
+    height: 85px;
+    display: inline-block;
+    background: url(https://static.tildacdn.com/tild3434-3565-4961-b838-663136343366/logo_art.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.t-form-success-popup__window{
+	max-width: 550px!important;
 }

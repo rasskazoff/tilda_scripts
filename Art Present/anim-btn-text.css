@@ -1,0 +1,25 @@
+/* текст вокруг кнопки */
+.animText .tn-atom {
+	position: relative;
+	transform: scale(var(--x, 1));
+	transform-origin: var(--o, center);
+	margin: 0 auto;
+    width: 560px;
+	height: 10px;
+    transform: translate(-14px, -19px);
+}
+
+.char {
+	--i: calc(50% / var(--char-total));
+	offset-path: path('M38,26 l198,0 q37,0 41,37 q-4,34 -40,37 l-199,-1 q-33,-1 -37,-37 q3,-33 36,-36 M38,26 l198,0 q37,0 41,37 q-4,34 -40,37 l-199,-1 q-33,-1 -37,-37 q3,-33 36,-36');
+	offset-distance: calc(var(--char-index) * 9.08px);
+	position: absolute;
+	animation: move 15000ms infinite linear ;
+}
+
+@keyframes move {
+	100% {
+		--i: 1.2rem;
+		offset-distance: calc((var(--char-index) * 0.555rem) + 40rem);
+	}
+}
