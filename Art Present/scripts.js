@@ -109,4 +109,12 @@ try {
     }
 }catch(err){console.log(err)}
 
+// до/после 
+try {
+    const slider = document.querySelector('.uc-beforeafter')
+    if(slider){
+        const sliderNew = document.querySelector('#beforeafter')
+        sliderNew.append(slider)
+    }
+}catch(err){console.log(err)}
 })

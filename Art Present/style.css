@@ -157,3 +157,11 @@
 .t-form-success-popup__window{
 	max-width: 550px!important;
 }
+/* до / после */
+#beforeafter .t410__col{
+	padding: 0;
+}
+#beforeafter .t-beforeafter{
+	height: 100%;
+	position: absolute;
+}
