@@ -122,6 +122,8 @@ try {
     if(slider){
         const sliderNew = document.querySelector('#beforeafter')
         sliderNew.append(slider)
+        sliterId = slider.id.replace('rec','')
+        t410_init(sliterId)
     }
 }catch(err){console.log(err)}
 })
