@@ -229,9 +229,10 @@
 }
 .uc-quiz .uploadcare--widget__button, .uploadcare--widget__dragndrop-area{
 	max-width: 100%;
+	width: 100%;
 	background: rgb(247 247 247)!important;
 	border: 1px dashed rgba(11, 27, 53, 0.2);
-	border-radius: 5px;
+	border-radius: 5px!important;
 	height: 270px;
 	margin-top: 30px;
 	display: flex;
