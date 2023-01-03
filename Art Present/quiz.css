@@ -241,7 +241,6 @@
     justify-content: center;
 }
 .uc-quiz .uploadcare--widget__dragndrop-area{
-	top: 30px;
 	display: none;
 }
 .uploadcare--dragging .uploadcare--widget__dragndrop-area{
