@@ -224,12 +224,12 @@
 .uc-quiz .t862__quiz_inner-space{
 	padding-bottom: 30px;
 }
-.uc-quiz .t-input-group_uw .t-input-block{
+.uc-quiz .t-input-group_uc .t-input-block, .uc-quiz .uploadcare--widget{
 	width: 100%;
 }
-.uc-quiz .t-upwidget-container__button{
+.uc-quiz .uploadcare--widget__button, .uploadcare--widget__dragndrop-area{
 	max-width: 100%;
-	background: rgba(0, 0, 0, 0.03)!important;
+	background: rgb(247 247 247)!important;
 	border: 1px dashed rgba(11, 27, 53, 0.2);
 	border-radius: 5px;
 	height: 270px;
@@ -239,7 +239,11 @@
     align-items: center;
     justify-content: center;
 }
-.uc-quiz .t-upwidget-container__button svg{
+.uploadcare--dragging .uploadcare--widget__dragndrop-area{
+	top: 30px;
+	display: flex!important;
+}
+.uc-quiz .uploadcare--widget__button svg{
 	margin-right: 10px;
 	min-width: 30px;
 }
