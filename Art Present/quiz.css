@@ -227,7 +227,7 @@
 .uc-quiz .t-input-group_uc .t-input-block, .uc-quiz .uploadcare--widget{
 	width: 100%;
 }
-.uc-quiz .uploadcare--widget__button_type_open, .uploadcare--widget__dragndrop-area{
+.uc-quiz .uploadcare--widget__button_type_open, .uc-quiz .uploadcare--widget__dragndrop-area{
 	max-width: 100%;
 	width: 100%;
 	background: rgb(247 247 247)!important;

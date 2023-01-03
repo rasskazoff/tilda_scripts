@@ -114,8 +114,7 @@
 .uc-popup__zero .t-input-group_uw .t-input-block{
 	margin-left: auto;
 }
-.uc-popup__zero .t-upwidget-container__button,
-.uc-popup__zero .t-upwidget-container__button-indiv{
+.uc-popup__zero .uploadcare--widget__button{
 	background-color: #fff!important;
     color: #0B1B35!important;
     border: 1px solid #0B1B35;
