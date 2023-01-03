@@ -242,8 +242,9 @@
 }
 .uc-quiz .uploadcare--widget__dragndrop-area{
 	display: none;
+	min-height: auto;
 }
-.uploadcare--dragging .uploadcare--widget__dragndrop-area{
+.uploadcare--dragging .uc-quiz .uploadcare--widget__dragndrop-area{
 	display: flex!important;
 }
 .uc-quiz .uploadcare--widget__button svg{
