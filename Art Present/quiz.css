@@ -239,8 +239,11 @@
     align-items: center;
     justify-content: center;
 }
-.uploadcare--dragging .uploadcare--widget__dragndrop-area{
+.uc-quiz .uploadcare--widget__dragndrop-area{
 	top: 30px;
+	display: none;
+}
+.uploadcare--dragging .uploadcare--widget__dragndrop-area{
 	display: flex!important;
 }
 .uc-quiz .uploadcare--widget__button svg{
