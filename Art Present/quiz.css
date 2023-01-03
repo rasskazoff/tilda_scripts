@@ -251,24 +251,6 @@
 	margin-right: 10px;
 	min-width: 30px;
 }
-.uc-quiz .t-upwidget__show-files.t-upwidget-container__data{
-	width: 100%!important;
-    text-align: center;
-    text-align: -webkit-center;
-    top: 0;
-    height: calc( 100% - 50px )!important;
-    padding-top: 50px;
-	background: rgb(247 247 247);
-    border: 1px dashed rgba(11, 27, 53, 0.2);
-    border-radius: 5px;
-}
-.uc-quiz .t-upwidget-container__button-indiv{
-	color: rgb(255, 255, 255);
-    background-color: rgb(100, 101, 106);
-    border-radius: 8px;
-	padding: 10px 20px;
-}
-
 @media screen and (max-width: 960px){
 	.uc-quiz .t-input-block{
 		width: 100%;
@@ -332,7 +314,7 @@
 	.uc-quiz .t-datepicker{
 		height: 60px;
 	}
-	.uc-quiz .t-upwidget-container__button{
+	.uc-quiz .uploadcare--widget__button_type_open{
 		white-space: normal;
 		line-height: inherit!important;
 	}
@@ -347,10 +329,10 @@
 	.uc-quiz .step__size .t-img-select__control {
 		width: calc( 100% / 2);
 	}
-	.uc-quiz .t-upwidget-container__button{
+	.uc-quiz .uploadcare--widget__button_type_open{
 		flex-direction: column;
 	}
-	.uc-quiz .t-upwidget-container__button svg{
+	.uc-quiz .uploadcare--widget__button_type_open svg{
 		margin-bottom: 10px;
 		margin-right: 0;
 	}
