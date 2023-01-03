@@ -107,11 +107,12 @@
 .uc-popup__zero .t-img-select__indicator:after{
 	background-color: #FF823A!important;
 }
-.uc-popup__zero .t-input-group_uw{
+.uc-popup__zero .t-input-group_uc{
 	display: flex;
     align-items: center;
+	margin-bottom: 10px;
 }
-.uc-popup__zero .t-input-group_uw .t-input-block{
+.uc-popup__zero .t-input-group_uc .t-input-block{
 	margin-left: auto;
 }
 .uc-popup__zero .uploadcare--widget__button{
