@@ -43,7 +43,7 @@ try {
     button__new.classList.add('t744__btn-wrapper')
     button__new.classList.add('t1002__btns-wrapper')
     button__new.innerHTML = '<a href="#popup:zamer" target="" class="t744__btn t-btn t-btn_sm" style="color:#ffffff;background-color:#3a588d;border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px;"><table style="width:100%; height:100%;"><tbody><tr><td class="js-store-prod-buy-btn-txt">Бесплатный замер></td></tr></tbody></table></a>'
-    button.append(button__new)
+    button.after(button__new)
     
 }catch(err){console.log(err)}
 
