@@ -298,6 +298,13 @@
 	.uc-quiz .t862 .t-input-group{
 		padding-bottom: 150px;
 	}
+	.uc-quiz .t862 .t-popup__close{
+		padding-bottom: 20px;;
+	}
+	.uc-quiz .t-form__submit{
+		padding-bottom: 100px;
+	}
+
 }
 
 /* иконка закрытия внутри окна */
