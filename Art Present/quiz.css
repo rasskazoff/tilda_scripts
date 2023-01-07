@@ -274,11 +274,12 @@
 	}
 	/* мобильный квиз на всю высоту для закрепа кнопок снизу */
 	.uc-quiz .t-popup__container{
-		height: 100vh;
+		min-height: auto;
+		height: 100%;
 		margin: 0!important;
 	}
 	.uc-quiz .t862__wrapper{
-		overflow: scroll;
+		overflow-y: scroll;
     	height: 100vh;
 		padding-top: 20px;
 	}
