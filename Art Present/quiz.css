@@ -292,6 +292,9 @@
 	.uc-quiz form{
 		border-bottom: none;
 	}
+	.uc-quiz .t-input-block{
+		padding-bottom: 140px;
+	}
 }
 
 /* иконка закрытия внутри окна */
