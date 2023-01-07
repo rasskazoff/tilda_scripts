@@ -272,6 +272,26 @@
 	.uc-quiz .step__frame .t-img-select__indicator{
 		background-position: center;
 	}
+	/* мобильный квиз на всю высоту для закрепа кнопок снизу */
+	.uc-quiz .t-popup__container{
+		height: 100vh;
+		margin: 0!important;
+	}
+	.uc-quiz .t862__wrapper{
+		overflow: scroll;
+    	height: 100vh;
+		padding-top: 20px;
+	}
+	.uc-quiz .t862__btn-wrapper:not(.fixed-top){
+		border-top: 2px solid #FF823A;
+		background: #fff;
+		padding-top: 30px;
+		padding-bottom: 30px;
+    	margin-bottom: -30px;
+	}
+	.uc-quiz form{
+		border-bottom: none;
+	}
 }
 
 /* иконка закрытия внутри окна */
