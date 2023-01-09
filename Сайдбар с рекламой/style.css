@@ -1,0 +1,31 @@
+@media screen and (min-width: 1200px){
+    .sidebar__wrapper{
+        position: relative;
+        display: flex;
+    }
+    .sidebar__wrapper .content__sidebar{
+        max-width: 70%;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+    .t-records{overflow: unset!important;}
+    .t-rec{overflow: hidden;}
+    .sidebar__wrapper .sidebar{
+        width: 30%; 
+        height: fit-content;
+        position: sticky;
+        position: -webkit-sticky;
+        top: 20px;
+        overflow: hidden;
+        max-height: 100%;
+        z-index: 99;
+        margin: 0 auto;
+    }
+    .sidebar__wrapper .t-col{
+        padding: 0;
+        margin: auto;
+        float: unset;
+        display: flex;
+        justify-content: center;
+    }
+}
