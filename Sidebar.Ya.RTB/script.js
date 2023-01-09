@@ -4,7 +4,7 @@
     try {
         if (innerWidth >= 1200){ 
             const style = document.createElement('link')
-            style.href = 'https://rasskazoff.github.io/tilda_scripts/%D0%A1%D0%B0%D0%B9%D0%B4%D0%B1%D0%B0%D1%80%20%D1%81%20%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%BE%D0%B9/style.css'
+            style.href = 'https://rasskazoff.github.io/tilda_scripts/Sidebar.Ya.RTB/style.css'
             style.rel = 'stylesheet'
             document.head.appendChild(style)
         }
