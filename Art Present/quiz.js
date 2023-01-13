@@ -4,6 +4,7 @@ t_ready(()=>{
 try {
     const style = document.createElement('link')
     style.href = 'https://rasskazoff.github.io/tilda_scripts/Art Present/quiz.css'
+    // style.href = 'http://127.0.0.1:8887/tilda_scripts/Art Present/quiz.css'
     style.rel = 'stylesheet'
     document.head.appendChild(style)
  }catch(err){console.log(err)}
@@ -29,12 +30,15 @@ try {
     const btn_next = document.querySelector('.uc-quiz .t862__btn_next')
     const btn_result = document.querySelector('.uc-quiz .t862__btn_result')
     const btn_submit = document.querySelector('.uc-quiz .t-submit')
+    const quiz = document.querySelector('.uc-quiz')
     
     let observer = new MutationObserver(mutationRecords => {
         if (btn_next.style.display == 'none' && btn_result.style.display == 'none'){
             btn_wrapper.classList.add('fixed-top')
+            quiz.classList.add('quiz__finish')
         }else{
             btn_wrapper.classList.remove('fixed-top')
+            quiz.classList.remove('quiz__finish')
         }
     });
     observer.observe(btn_result, {
@@ -82,5 +86,181 @@ try {
         })
     })
     */
+   /* переносим прогрессбар */
+   const progressbar = document.querySelector('.t862__progressbar')
+   const quiz__form = document.querySelector('.uc-quiz form')
+   quiz__form.append(progressbar)
+
+   /* деактивируем кнопку далее если не выбран ни один вариант */
+   btn_next.classList.add('disabled')
+
+   const btn_prev = document.querySelector('.uc-quiz .t862__btn_prev')
+   const isSelected = () => {
+        let input = document.querySelectorAll('.t-input-group-step_active input[data-tilda-req="1"]')
+        let input_checked = document.querySelectorAll('.t-input-group-step_active input[data-tilda-req="1"]:checked')
+
+        input.length ?
+         input_checked.length > 0 ? btn_next.classList.remove('disabled') : btn_next.classList.add('disabled') :
+         btn_next.classList.remove('disabled')
+        
+        input.forEach((el)=>{
+            el.addEventListener('change', ()=>{
+                let input_checked = document.querySelectorAll('.t-input-group-step_active input[data-tilda-req="1"]:checked')
+                input_checked.length > 0 ? btn_next.classList.remove('disabled') : btn_next.classList.add('disabled')
+            })
+        })
+    }
+
+    setTimeout(()=>{ isSelected() },500)
+
+    btn_next.addEventListener('click',()=>{
+        setTimeout(()=>{ isSelected() },300)
+    })
+    btn_prev.addEventListener('click',()=>{
+        setTimeout(()=>{ isSelected() },300)
+    })
+
+    /* параметры портрета */
+    const btn_params = document.createElement('div')
+    btn_params.classList.add('btn_params')
+    btn_params.innerHTML = '<div class="btn_params__text">Параметры вашего портрета</div><div class="btn_params__icon"></div>'
+
+    const params__content = document.createElement('div')
+    params__content.classList.add('params__content')
+    params__content.innerHTML = '<div class="params_step"><div class="params_name">Выберите параметры</div></div>'
+    btn_params.prepend(params__content)
+
+    btn_wrapper.prepend(btn_params)
+
+    btn_params.addEventListener('click', ()=>{
+        btn_params.classList.toggle('active')
+    })
+
+    const params_step = document.createElement('div')
+    params_step.classList.add('params_step')
+    
+    let params_data = []
+    const setParams = () => {
+        const step_active = document.querySelector('.t-input-group-step_active')
+        const step_active__input = step_active.querySelectorAll('input:checked')
+        const step_active__input__text = step_active.querySelector('input')
+        const step_active__title = step_active.querySelector('.t-input-group-step_active .t-input-title').innerHTML.split('</div>').reverse()[0]
+        const step_active__index = Number(step_active.dataset.questionNumber)
+
+        let step_active__value = []
+        
+        //проверяем тип поля и получаем значение
+        if(step_active__input.length > 0 ? step_active__input[0].type == 'radio' : false ||
+           step_active__input.length > 0 ? step_active__input[0].type == 'checkbox' : false){
+            step_active__input.forEach(el => {
+                step_active__value = [...step_active__value, el.value]
+            })   
+        }else if(step_active__input__text.role == 'uploadcare-uploader' ){
+            step_active__value = 'Загружено изображение'
+        }else{
+            step_active__value = step_active__input__text.value
+        }
+        //проверяем есть ли элемент в массиве и обновляем данные
+        if (params_data[step_active__index]){
+            if (step_active__value == ''){
+                params_data.splice(step_active__index, 1)
+            }else{
+                params_data[step_active__index].step_active__value = step_active__value
+            }
+        }else{
+            params_data.push({step_active__index, step_active__title, step_active__value})
+        }     
+        console.log(params_data)
+        params__content.innerHTML = ''
+        params_data.forEach((param)=>{
+            params__content.innerHTML += `
+            <div class="params_step">
+                <div class="params_name">${param.step_active__title}</div>
+                <div class="params_value">${param.step_active__value}</div>
+            </div>`
+        })
+    }
+
+    const inputs = quiz__form.querySelectorAll('input')
+    inputs.forEach((input)=>{
+        input.addEventListener('change', ()=> { setParams() })
+    })
+
+    //Отслеживаем изменения атрибутов выбора даты и загрузки файла только после нажатия на кнопку далее, чтобы предотвратить раннюю инициализацию
+    btn_next.addEventListener('click', ()=>{
+        let observer__date = new MutationObserver(mutationRecords => {
+            setTimeout(()=>{ setParams() },500)
+        })
+        observer__date.observe(document.querySelector('.uc-quiz [name="date"]'), {
+            attributes: true
+        })
+        
+        let observer__uploadcare = new MutationObserver(mutationRecords => {
+            if (mutationRecords.reverse[0].target.dataset.status == 'loaded'){
+                setTimeout(()=>{ setParams() },500)
+            }
+        })
+        
+        setTimeout(()=>{
+            const uploadcare__widget = document.querySelector('.uc-quiz .uploadcare--widget')
+            observer__uploadcare.observe(uploadcare__widget, {
+                attributes: true
+            })
+        },1000)
+    })
+
+    // переносим подзаголовок в блок с инпутами
+    setTimeout(()=>{
+        const quiz__subtitle = quiz.querySelectorAll('.t-input-group:not(.t862__t-input-group_capture) .t-input-subtitle')
+        quiz__subtitle.forEach((el)=>{
+            el.nextElementSibling.append(el)
+        })
+    },1000)
+
+    // смешенный тип выбора варианта
+    const radio__checkbox = quiz.querySelector('[name="radio__checkbox"]')
+    const radio__checkbox__inputs = radio__checkbox.closest('.t-input-block').querySelectorAll('input.t-img-select')
+    
+    radio__checkbox__inputs[0].addEventListener('change',()=>{
+        radio__checkbox__inputs[0].checked ? radio__checkbox__inputs[1].checked = false : ''
+    })
+
+    radio__checkbox__inputs[1].addEventListener('change',()=>{
+        radio__checkbox__inputs[1].checked ? radio__checkbox__inputs[0].checked = false : ''
+    })
+
+
+    // создаем элемент для отображения изображений
+    const radio__checkbox_div = document.createElement('div')
+    radio__checkbox_div.classList.add('radio__checkbox')
+
+    const select__indicator = radio__checkbox.closest('.t-input-block').querySelectorAll('.t-img-select__indicator')
+    
+    select__indicator.forEach((el, i)=>{
+        const img_select = document.createElement('div')
+        img_select.classList.add('img_select')
+        img_select.style.backgroundImage = `url(${el.dataset.original})`
+        el.style.display = 'none'
+        radio__checkbox_div.append(img_select)
+        select__indicator.length == (i+1) ? radio__checkbox.closest('.t-input-block').prepend(radio__checkbox_div) : ''
+    })
+
+
+    const img_select = quiz.querySelectorAll('.img_select')
+    radio__checkbox__inputs.forEach((el,i)=>{
+        el.addEventListener('change', ()=>{
+            if (radio__checkbox.closest('.t-input-block').querySelectorAll('input.t-img-select:checked').length > 0) {
+                el.checked ? img_select[i].classList.add('active') : img_select[i].classList.remove('active')
+                radio__checkbox__inputs[0].checked ? img_select[1].classList.remove('active') : ''
+                radio__checkbox__inputs[1].checked ? img_select[0].classList.remove('active') : ''
+            }else{
+                img_select[0].classList.add('active')
+            }
+        })
+    })
+
+    img_select[0].classList.add('active')
+    
+
 }catch(err){console.log(err)}
 })

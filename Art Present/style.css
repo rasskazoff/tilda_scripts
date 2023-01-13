@@ -55,10 +55,10 @@
     border-radius: 8px;
     transform: matrix(1.08, 0, 0, 1, 0, 0) rotate(-4.56deg);
 }
-.border__animate:hover{
+.border__animate:not(.disabled):hover{
 	background-color: #FF823A!important;
 }
-.border__animate:hover:after{
+.border__animate:not(.disabled):hover:after{
 	transform: inherit;
 }
 .animBtn__white .border__animate::after {
