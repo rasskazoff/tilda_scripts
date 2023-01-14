@@ -39,10 +39,11 @@ try {
         el.addEventListener('click',()=>{
             menu.classList.toggle('active')
             fixMenu.classList.toggle('active')
-            menuBlock.classList.add('show')
             
             if(window.pageYOffset <= 333 && menuBlock.classList.contains('show')){
                 menuBlock.classList.remove('show')
+            }else{
+                menuBlock.classList.add('show')
             }
         })
     })
