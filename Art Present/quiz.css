@@ -4,6 +4,16 @@
 }
 .uc-quiz .t-img-select__indicator{
 	border-radius: 8px;
+	box-shadow: none!important;
+}
+.uc-quiz .isFrame .t-img-select__control:nth-of-type(3) .t-img-select__indicator{
+	display: none;
+}
+.uc-quiz .isFrame .t-img-select__indicator{
+	background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #fff;
 }
 .uc-quiz .border__animate:not(.disabled){
 	box-shadow: 1px 10px 40px rgba(100, 101, 106, 0.5);
@@ -396,7 +406,6 @@
 		bottom: 15px;
 	}
 	.uc-quiz:not(.quiz__finish) form{
-		/* height: calc( var(--app-height) - 428px ); */
 		height: calc((var(--vh, 1vh) * 100) - 228px);
 	}
 	.uc-quiz .t-img-select__control {
@@ -417,8 +426,7 @@
 	.uc-quiz .t-form__inputsbox>.t-input-group .t-input-block{
 		width: 100%;
 		overflow: scroll;
-    	/* height: calc( var(--app-height) - 322px ); */
-		height: calc((var(--vh, 1vh) * 100) - 322px );
+		height: calc((var(--vh, 1vh) * 100) - 325px );
 		margin-top: 0;
 		position: inherit;
 	}
@@ -438,7 +446,7 @@
 	.uc-quiz .t862__wrapper{
 		overflow-y: scroll;
 		overflow-x: hidden;
-    	height: 100vh;
+		height: calc(var(--vh, 1vh) * 100);
 		padding-top: 20px;
 	}
 	.uc-quiz .t862__btn-wrapper:not(.fixed-top){
@@ -475,9 +483,10 @@
 	}
 	.uc-quiz .t-input-group_da .t-input-subtitle{
 		margin-top: 20px;
+		height: fit-content;
 	}
 	.uc-quiz form{
-		min-height: calc( 100vh - 280px );
+		min-height: calc((var(--vh, 1vh) * 100) - 280px );
 	}
 	.uc-quiz .t-submit{
 		max-width: 250px;

@@ -28,12 +28,20 @@ try {
 //бургер меню
 try {
     const menu = document.querySelector('.uc-menuMob')
-    const menuButton = document.querySelector('[href="#menu"]')
     const fixMenu = document.querySelector('.uc-fixMenu .t396__artboard')
+    const staticMenu = document.querySelector('.uc-staticMenu .t396__artboard')
+    const fixMenuButton = fixMenu.querySelector('[href="#menu"]')
+    const staticMenuButton = staticMenu.querySelector('[href="#menu"]')
 
-    menuButton.addEventListener('click',()=>{
+    fixMenuButton.addEventListener('click',()=>{
         menu.classList.toggle('active')
         fixMenu.classList.toggle('active')
+        t_lazyload__init()
+    })
+
+    staticMenuButton.addEventListener('click',()=>{
+        menu.classList.toggle('active')
+        staticMenuButton.classList.toggle('active')
     })
 }catch(err){console.log(err)}
 

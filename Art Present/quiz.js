@@ -10,7 +10,18 @@ try {
  }catch(err){console.log(err)}
 /* калькулятор */
 try {
-    const title = document.querySelectorAll('.uc-quiz .t-input-title')
+    // ставим порядковый номер на все шаги кроме isframe
+    const quiz = document.querySelector('.uc-quiz')
+    const btn_wrapper = document.querySelector('.uc-quiz .t862__btn-wrapper')
+    const btn_next = document.querySelector('.uc-quiz .t862__btn_next')
+    const btn_result = document.querySelector('.uc-quiz .t862__btn_result')
+    const btn_submit = document.querySelector('.uc-quiz .t-submit')
+
+    const isFrame = quiz.querySelector('[name="isFrame"]').closest('.t-input-group')
+    isFrame.classList.add('isFrame')
+    isFrame.querySelector('.t-input-title').classList.add('isFrame-title')
+    const title = quiz.querySelectorAll('.uc-quiz .t-input-title:not(.isFrame-title)')
+
     title.forEach((e,i)=>{
         let div = document.createElement('div')
         div.classList.add('step__wrap')
@@ -25,12 +36,21 @@ try {
     let step__frame = document.querySelector('.uc-quiz [name="frame"]')
     step__frame = step__frame.closest('.t-input-group')
     step__frame.classList.add('step__frame')
+
+    // скрываем шаг isFrame и делаем активными при выборе варианта "в раме"
+    let frame_input = step__frame.querySelectorAll('[name="frame"]')
     
-    const btn_wrapper = document.querySelector('.uc-quiz .t862__btn-wrapper')
-    const btn_next = document.querySelector('.uc-quiz .t862__btn_next')
-    const btn_result = document.querySelector('.uc-quiz .t862__btn_result')
-    const btn_submit = document.querySelector('.uc-quiz .t-submit')
-    const quiz = document.querySelector('.uc-quiz')
+    frame_input.forEach((el)=>{
+        el.addEventListener('change',()=>{ 
+            btn_next.addEventListener('click',()=>{
+                frame_input[0].checked ?(
+                    t862_switchQuestion(quiz, Number(isFrame.dataset.questionNumber)+1,
+                    t_lazyload__init())
+                ) : ''
+            })
+        })
+    })
+   
     
     let observer = new MutationObserver(mutationRecords => {
         if (btn_next.style.display == 'none' && btn_result.style.display == 'none'){
@@ -96,8 +116,8 @@ try {
 
    const btn_prev = document.querySelector('.uc-quiz .t862__btn_prev')
    const isSelected = () => {
-        let input = document.querySelectorAll('.t-input-group-step_active input[data-tilda-req="1"]')
-        let input_checked = document.querySelectorAll('.t-input-group-step_active input[data-tilda-req="1"]:checked')
+        let input = document.querySelectorAll('.t-input-group-step_active input[data-tilda-req="1"], .t-input-group-step_active [name="isFrame"]')
+        let input_checked = document.querySelectorAll('.t-input-group-step_active input[data-tilda-req="1"]:checked, .t-input-group-step_active [name="isFrame"]:checked')
 
         input.length ?
          input_checked.length > 0 ? btn_next.classList.remove('disabled') : btn_next.classList.add('disabled') :
@@ -105,7 +125,7 @@ try {
         
         input.forEach((el)=>{
             el.addEventListener('change', ()=>{
-                let input_checked = document.querySelectorAll('.t-input-group-step_active input[data-tilda-req="1"]:checked')
+                let input_checked = document.querySelectorAll('.t-input-group-step_active input[data-tilda-req="1"]:checked, .t-input-group-step_active [name="isFrame"]:checked')
                 input_checked.length > 0 ? btn_next.classList.remove('disabled') : btn_next.classList.add('disabled')
             })
         })
