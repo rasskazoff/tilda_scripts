@@ -31,20 +31,21 @@ try {
 //бургер меню
 try {
     const menu = document.querySelector('.uc-menuMob')
-    const fixMenu = document.querySelector('.uc-fixMenu .t396__artboard')
-    const staticMenu = document.querySelector('.uc-staticMenu .t396__artboard')
-    const fixMenuButton = fixMenu.querySelector('[href="#menu"]')
-    const staticMenuButton = staticMenu.querySelector('[href="#menu"]')
-
-    fixMenuButton.addEventListener('click',()=>{
-        menu.classList.toggle('active')
-        fixMenu.classList.toggle('active')
+    const menuBlock = document.querySelector('.uc-fixMenu')
+    const fixMenu = menuBlock.querySelector('.uc-fixMenu .t396__artboard')
+    const menuButton = document.querySelector('[href="#menu"]')
+    
+    menuButton.forEach((el)=>{
+        el.addEventListener('click',()=>{
+            menu.classList.toggle('active')
+            fixMenu.classList.toggle('active')
+            menuBlock.classList.add('show')
+            if(!window.pageYOffset > 333){
+                menuBlock.classList.remove('show')
+            }
+        })
     })
 
-    staticMenuButton.addEventListener('click',()=>{
-        menu.classList.toggle('active')
-        staticMenuButton.classList.toggle('active')
-    })
 }catch(err){console.log(err)}
 
 //яндекс карта
