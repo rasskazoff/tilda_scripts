@@ -262,6 +262,10 @@ try {
 
         img_select[0].classList.add('active')
     }
+
+    //запишем высоту устройства для стилей
+    let vh = window.innerHeight * 0.01
+    document.documentElement.style.setProperty('--vh', `${vh}px`)
     
 
 }catch(err){console.log(err)}
