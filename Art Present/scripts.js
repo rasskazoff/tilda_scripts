@@ -15,12 +15,16 @@ try {
 
     let menuH = window.getComputedStyle(menu).height
     menuBlock.style.height = menuH
+    menuBlock.dataset.lazyload = false
 
     document.addEventListener("scroll", () => {
         if(window.pageYOffset > 333){
             menu.classList.add('fixed')
             menuBlock.classList.add('show')
-            t_lazyload__init()
+            if (!menuBlock.dataset.lazyload){
+                t_lazyload__init()
+            }
+            menuBlock.dataset.lazyload = true
         }else{
             menu.classList.remove('fixed')
             menuBlock.classList.remove('show')
