@@ -33,7 +33,7 @@ try {
     const menu = document.querySelector('.uc-menuMob')
     const menuBlock = document.querySelector('.uc-fixMenu')
     const fixMenu = menuBlock.querySelector('.uc-fixMenu .t396__artboard')
-    const menuButton = document.querySelector('[href="#menu"]')
+    const menuButton = document.querySelectorAll('[href="#menu"]')
     
     menuButton.forEach((el)=>{
         el.addEventListener('click',()=>{
