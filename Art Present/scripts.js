@@ -41,9 +41,9 @@ try {
             fixMenu.classList.toggle('active')
             
             if(window.pageYOffset <= 333 && menuBlock.classList.contains('show')){
-                menuBlock.classList.remove('show')
+                menuBlock.classList.remove('show-menu')
             }else{
-                menuBlock.classList.add('show')
+                menuBlock.classList.add('show-menu')
             }
         })
     })

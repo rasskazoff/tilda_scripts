@@ -8,7 +8,7 @@
 .uc-fixMenu{
 	display: none;
 }
-.uc-fixMenu.show{
+.uc-fixMenu.show, .uc-fixMenu.show-menu{
 	display: block;
 }
 .uc-fixMenu .fixed , .uc-fixMenu .active{
