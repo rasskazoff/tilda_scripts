@@ -231,35 +231,37 @@ try {
 
 
     // создаем элемент для отображения изображений
-    const radio__checkbox_div = document.createElement('div')
-    radio__checkbox_div.classList.add('radio__checkbox')
+    if (innerWidth > 960){
+        const radio__checkbox_div = document.createElement('div')
+        radio__checkbox_div.classList.add('radio__checkbox')
 
-    const select__indicator = radio__checkbox.closest('.t-input-block').querySelectorAll('.t-img-select__indicator')
-    
-    select__indicator.forEach((el, i)=>{
-        const img_select = document.createElement('div')
-        img_select.classList.add('img_select')
-        img_select.style.backgroundImage = `url(${el.dataset.original})`
-        el.style.display = 'none'
-        radio__checkbox_div.append(img_select)
-        select__indicator.length == (i+1) ? radio__checkbox.closest('.t-input-block').prepend(radio__checkbox_div) : ''
-    })
-
-
-    const img_select = quiz.querySelectorAll('.img_select')
-    radio__checkbox__inputs.forEach((el,i)=>{
-        el.addEventListener('change', ()=>{
-            if (radio__checkbox.closest('.t-input-block').querySelectorAll('input.t-img-select:checked').length > 0) {
-                el.checked ? img_select[i].classList.add('active') : img_select[i].classList.remove('active')
-                radio__checkbox__inputs[0].checked ? img_select[1].classList.remove('active') : ''
-                radio__checkbox__inputs[1].checked ? img_select[0].classList.remove('active') : ''
-            }else{
-                img_select[0].classList.add('active')
-            }
+        const select__indicator = radio__checkbox.closest('.t-input-block').querySelectorAll('.t-img-select__indicator')
+        
+        select__indicator.forEach((el, i)=>{
+            const img_select = document.createElement('div')
+            img_select.classList.add('img_select')
+            img_select.style.backgroundImage = `url(${el.dataset.original})`
+            el.style.display = 'none'
+            radio__checkbox_div.append(img_select)
+            select__indicator.length == (i+1) ? radio__checkbox.closest('.t-input-block').prepend(radio__checkbox_div) : ''
         })
-    })
 
-    img_select[0].classList.add('active')
+
+        const img_select = quiz.querySelectorAll('.img_select')
+        radio__checkbox__inputs.forEach((el,i)=>{
+            el.addEventListener('change', ()=>{
+                if (radio__checkbox.closest('.t-input-block').querySelectorAll('input.t-img-select:checked').length > 0) {
+                    el.checked ? img_select[i].classList.add('active') : img_select[i].classList.remove('active')
+                    radio__checkbox__inputs[0].checked ? img_select[1].classList.remove('active') : ''
+                    radio__checkbox__inputs[1].checked ? img_select[0].classList.remove('active') : ''
+                }else{
+                    img_select[0].classList.add('active')
+                }
+            })
+        })
+
+        img_select[0].classList.add('active')
+    }
     
 
 }catch(err){console.log(err)}
