@@ -20,6 +20,7 @@ try {
         if(window.pageYOffset > 333){
             menu.classList.add('fixed')
             menuBlock.classList.add('show')
+            t_lazyload__init()
         }else{
             menu.classList.remove('fixed')
             menuBlock.classList.remove('show')
