@@ -39,12 +39,7 @@ try {
         el.addEventListener('click',()=>{
             menu.classList.toggle('active')
             fixMenu.classList.toggle('active')
-            
-            if(menuBlock.classList.contains('show-menu')){
-                menuBlock.classList.remove('show-menu')
-            }else{
-                menuBlock.classList.add('show-menu')
-            }
+            menuBlock.classList.toggle('show-menu')
         })
     })
 
