@@ -19,8 +19,10 @@ try {
     document.addEventListener("scroll", () => {
         if(window.pageYOffset > 333){
             menu.classList.add('fixed')
+            menuBlock.classList.add('show')
         }else{
             menu.classList.remove('fixed')
+            menuBlock.classList.remove('show')
         }
     })
 }catch(err){console.log(err)}
@@ -36,7 +38,6 @@ try {
     fixMenuButton.addEventListener('click',()=>{
         menu.classList.toggle('active')
         fixMenu.classList.toggle('active')
-        t_lazyload__init()
     })
 
     staticMenuButton.addEventListener('click',()=>{

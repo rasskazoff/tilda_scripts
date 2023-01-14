@@ -4,6 +4,10 @@
 	position: relative;
 	z-index: 999;
 	box-shadow: 0px 30px 70px rgba(2, 13, 46, 0.04);
+	display: none;
+}
+.uc-fixMenu.show{
+	display: block;
 }
 .uc-fixMenu .fixed , .uc-fixMenu .active{
     position: fixed;
