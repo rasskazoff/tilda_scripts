@@ -432,6 +432,10 @@
 	}
 }
 @media screen and (max-width: 960px){
+	.uc-quiz .isFrame .t-img-select__control:last-child .t-img-select__indicator,
+	.uc-quiz .step__size .t-img-select__control:last-child .t-img-select__indicator{
+		display: none;
+	}
 	.uc-quiz .t-img-select__text{
 		font-size: 15px;
 	}
