@@ -4,6 +4,7 @@ t_ready(()=>{
 try {
     const style = document.createElement('link')
     style.href = 'https://rasskazoff.github.io/tilda_scripts/Art Present/style.css'
+    // style.href = 'http://127.0.0.1:8887/tilda_scripts/Art Present/style.css'
     style.rel = 'stylesheet'
     document.head.appendChild(style)
  }catch(err){console.log(err)}
@@ -15,16 +16,16 @@ try {
 
     let menuH = window.getComputedStyle(menu).height
     menuBlock.style.height = menuH
-    menuBlock.dataset.lazyload = false
+    let ready_lazyload = false
 
     document.addEventListener("scroll", () => {
         if(window.pageYOffset > 333){
             menu.classList.add('fixed')
             menuBlock.classList.add('show')
-            if (!menuBlock.dataset.lazyload){
+            if (!ready_lazyload){
                 t_lazyload__init()
+                ready_lazyload = true
             }
-            menuBlock.dataset.lazyload = true
         }else{
             menu.classList.remove('fixed')
             menuBlock.classList.remove('show')
@@ -35,16 +36,45 @@ try {
 //бургер меню
 try {
     const menu = document.querySelector('.uc-menuMob')
-    const menuBlock = document.querySelector('.uc-fixMenu')
-    const fixMenu = menuBlock.querySelector('.uc-fixMenu .t396__artboard')
-    const menuButton = document.querySelectorAll('[href="#menu"]')
-    
-    menuButton.forEach((el)=>{
+    const fixMenu = document.querySelector('.uc-fixMenu')
+    const fixMenuButton = fixMenu.querySelectorAll('[href="#menu"]')
+    const staticMenu = document.querySelector('.uc-staticMenu')
+    const staticMenuButton = staticMenu.querySelectorAll('[href="#menu"]')
+    let ready_lazyload = false
+
+    fixMenuButton.forEach((el)=>{
         el.addEventListener('click',()=>{
+            document.body.classList.toggle('no-scroll')
             menu.classList.toggle('active')
             fixMenu.classList.toggle('active')
-            menuBlock.classList.toggle('show-menu')
+            fixMenu.classList.toggle('show-menu')
+            staticMenu.classList.toggle('openMenu')
+            if (!ready_lazyload){
+                t_lazyload__init()
+                ready_lazyload = true
+            }
         })
+    })
+
+    staticMenuButton.forEach((el)=>{
+        el.addEventListener('click',()=>{
+            document.body.classList.toggle('no-scroll')
+            menu.classList.toggle('active')
+            staticMenu.classList.toggle('active')
+            staticMenu.classList.toggle('show-menu')
+            if (!ready_lazyload){
+                t_lazyload__init()
+                ready_lazyload = true
+            }
+        })
+    })
+
+    menu.querySelector('.t396__filter').addEventListener('click', ()=>{
+        menu.classList.remove('active')
+        fixMenu.classList.remove('active')
+        fixMenu.classList.remove('show-menu')
+        staticMenu.classList.remove('openMenu')
+        document.body.classList.remove('no-scroll')
     })
 
 }catch(err){console.log(err)}

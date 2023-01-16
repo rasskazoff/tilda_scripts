@@ -1,5 +1,8 @@
 
 /* шапка / фиксированное меню и стили активных пунктов меню */
+.no-scroll{
+	overflow: hidden!important;
+}
 .uc-fixMenu{
 	position: relative;
 	z-index: 999;
@@ -11,10 +14,16 @@
 .uc-fixMenu.show, .uc-fixMenu.show-menu{
 	display: block;
 }
-.uc-fixMenu .fixed , .uc-fixMenu .active{
+.uc-fixMenu .fixed, .uc-fixMenu.active .t396__artboard{
     position: fixed;
     z-index: 999;
 	box-shadow: 0px 30px 70px rgba(2, 13, 46, 0.04);
+}
+.uc-staticMenu.active .t396__artboard{
+	z-index: 999;
+}
+.openMenu{
+	display: none;
 }
 .nav__link .t-active{
     color: #ff823a!important;
