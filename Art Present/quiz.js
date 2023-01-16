@@ -105,8 +105,7 @@ try {
    
    /* переносим прогрессбар */
    const progressbar = quiz.querySelector('.t862__progressbar')
-   const quiz__form = quiz.querySelector('form')
-   quiz__form.append(progressbar)
+   btn_wrapper.prepend(progressbar)
 
    /* деактивируем кнопку далее если не выбран ни один вариант */
    btn_next.classList.add('disabled')
@@ -197,6 +196,7 @@ try {
         })
     }
 
+    const quiz__form = quiz.querySelector('form')
     const inputs = quiz__form.querySelectorAll('input')
     inputs.forEach((input)=>{
         input.addEventListener('change', ()=> { setParams() })
