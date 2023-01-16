@@ -12,11 +12,14 @@ try {
 try {
     // ставим порядковый номер на все шаги кроме isframe
     const quiz = document.querySelector('.uc-quiz')
+    const quiz_wrapper = quiz.querySelector('.t862__wrapper')
     const btn_wrapper = quiz.querySelector('.t862__btn-wrapper')
     const btn_next = quiz.querySelector('.t862__btn_next')
     const btn_prev = quiz.querySelector('.t862__btn_prev')
     const btn_result = quiz.querySelector('.t862__btn_result')
     const btn_submit = quiz.querySelector('.t-submit')
+
+    quiz_wrapper.after(btn_wrapper)
 
     const isFrame = quiz.querySelector('[name="isFrame"]').closest('.t-input-group')
     isFrame.classList.add('isFrame')

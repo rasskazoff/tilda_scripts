@@ -175,6 +175,7 @@
     justify-content: flex-end;
 	bottom: 30px;
 	align-items: center;
+	z-index: 9;
 }
 .uc-quiz .t862__result-title{
 	padding-bottom: 0

@@ -74,6 +74,8 @@ try {
         fixMenu.classList.remove('active')
         fixMenu.classList.remove('show-menu')
         staticMenu.classList.remove('openMenu')
+        staticMenu.classList.remove('active')
+        staticMenu.classList.remove('show-menu')
         document.body.classList.remove('no-scroll')
     })
 
