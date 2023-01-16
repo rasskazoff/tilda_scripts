@@ -3,6 +3,14 @@
 .no-scroll{
 	overflow: hidden!important;
 }
+.menu--open{
+	background: url(https://static.tildacdn.com/tild3738-3563-4230-b863-396335323237/close_icon__1.svg);
+	background-size: 130%;
+    background-position: center;
+}
+.menu--open img{
+	opacity: 0;
+}
 .uc-fixMenu{
 	position: relative;
 	z-index: 999;

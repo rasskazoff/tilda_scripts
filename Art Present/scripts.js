@@ -44,6 +44,7 @@ try {
 
     fixMenuButton.forEach((el)=>{
         el.addEventListener('click',()=>{
+            el.classList.toggle('menu--open')
             document.body.classList.toggle('no-scroll')
             menu.classList.toggle('active')
             fixMenu.classList.toggle('active')
@@ -58,6 +59,7 @@ try {
 
     staticMenuButton.forEach((el)=>{
         el.addEventListener('click',()=>{
+            el.classList.toggle('menu--open')
             document.body.classList.toggle('no-scroll')
             menu.classList.toggle('active')
             staticMenu.classList.toggle('active')
@@ -77,6 +79,9 @@ try {
         staticMenu.classList.remove('active')
         staticMenu.classList.remove('show-menu')
         document.body.classList.remove('no-scroll')
+        staticMenuButton[0].classList.remove('menu--open')
+        fixMenuButton[0].classList.remove('menu--open')
+
     })
 
 }catch(err){console.log(err)}
