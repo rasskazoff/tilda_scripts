@@ -327,7 +327,7 @@
 	position: absolute;
     left: 0;
     bottom: calc( 100% + 10px );
-    z-index: 2;
+    z-index: 10;
     width: 100%;
 	padding: 8px 0;
 	max-height: 250px;
