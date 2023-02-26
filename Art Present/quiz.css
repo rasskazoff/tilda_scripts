@@ -416,7 +416,8 @@
 		display: flex;
 		flex-direction: column;
 	}
-	.uc-quiz .t-img-select__control{
+	.uc-quiz .t-img-select__control,
+	ul.t-img-select__container>li.t-img-select__item{
 		width: 100%;
 		margin: 0;
 	}
