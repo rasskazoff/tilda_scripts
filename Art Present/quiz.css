@@ -467,7 +467,9 @@
 	.uc-quiz:not(.quiz__finish) form{
 		height: 100%;
 	}
-	.uc-quiz .t-img-select__control,.uc-quiz .step__style .t-img-select__control{
+	.uc-quiz .t-img-select__control,
+	.uc-quiz .step__style .t-img-select__control,
+	ul.t-img-select__container>li.t-img-select__item{
 		width: calc(50% - 10px);
 	}
 	.uc-quiz .t-popup{
