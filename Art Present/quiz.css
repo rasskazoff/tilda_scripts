@@ -8,6 +8,9 @@
 	font-size: 18px;
 	font-weight: 500;
 }
+.uc-quiz .step__style{
+	display: none
+}
 .uc-quiz .step__style .t-img-select__container{
 	flex-wrap: wrap;
 	flex-direction: row;
