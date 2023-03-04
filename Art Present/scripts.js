@@ -124,7 +124,7 @@ try {
     const zeroPopup = (popupName) => {
         const popup = document.querySelector(`[data-tooltip-hook="#${popupName}"] .t-popup__container`)
         const zero = document.querySelector(`.uc-${popupName}`)
-        const button__init = document.querySelectorAll(`[href="#${popupName}"]`)
+        const button__init = document.querySelectorAll(`[href^="#${popupName}"]`)
 
         let popupID = popup.closest('.t-rec').getAttribute('id').replace('rec','')
         zero.querySelector('[href="#close"]').addEventListener('click',()=>{
