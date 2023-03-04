@@ -274,6 +274,7 @@ try {
                 radio__checkbox__inputs[0].checked ? img_select[1].classList.remove('active') : ''
                 radio__checkbox__inputs[1].checked ? img_select[0].classList.remove('active') : ''
                 radio__checkbox__inputs[2].checked ? img_select.forEach((el)=>{el.classList.remove('h100')}) : img_select.forEach((el)=>{el.classList.add('h100')})
+                img_checked.length == 1 ? (radio__checkbox__inputs[0].checked ? '' : img_select[0].classList.remove('active'), radio__checkbox__inputs[2].checked ? img_select[2].classList.add('h100') : '' ) : ''
                 img_checked.length == 0 ? img_select[0].classList.add('active') : ''
             })
         })
