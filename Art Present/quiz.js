@@ -24,14 +24,17 @@ try {
     const isFrame = quiz.querySelector('[name="isFrame"]').closest('.t-input-group')
     isFrame.classList.add('isFrame')
     isFrame.querySelector('.t-input-title').classList.add('isFrame-title')
-    const title = quiz.querySelectorAll('.t-input-title:not(.isFrame-title)')
+    let title = quiz.querySelectorAll('.t-input-title:not(.isFrame-title)')
 
-    title.forEach((e,i)=>{
-        let div = document.createElement('div')
-        div.classList.add('step__wrap')
-        div.innerHTML = `<div class="step">${i+1}</div>`
-        e.prepend(div)
-    })
+    const numeration = (title) => {
+        title.forEach((e,i)=>{
+            let div = document.createElement('div')
+            div.classList.add('step__wrap')
+            div.innerHTML = `<div class="step">${i+1}</div>`
+            e.prepend(div)
+        })
+    }
+    numeration(title)
     
     let step__size = quiz.querySelector('[name="size"]')
     step__size = step__size.closest('.t-input-group')
@@ -43,12 +46,26 @@ try {
 
     // скрываем шаг isFrame и делаем активными при выборе варианта "в раме"
     let frame_input = step__frame.querySelectorAll('[name="frame"]')
-
+    
     frame_input.forEach((el)=>{
         el.addEventListener('change',()=>{ 
             frame_input[0].checked
             ? isFrame.classList.remove('t-input-group')
             : isFrame.classList.add('t-input-group')
+        })
+    })
+
+    // скрываем стили портрета и делаем активным при выборе варианта "Арт портрет"
+    let portrait_type = quiz.querySelectorAll('[name="Выберите тип портрета"]')
+    const isStep__style = quiz.querySelector('.step__style')
+    isStep__style.querySelector('.t-input-title').classList.add('isStep__style-title')
+    let newTitle = quiz.querySelectorAll('.t-input-title:not(.isFrame-title, isStep__style-title)')
+
+    portrait_type.forEach((el)=>{
+        el.addEventListener('change',()=>{ 
+            portrait_type[0].checked
+            ? (isStep__style.classList.add('t-input-group'), numeration(title))
+            : (isStep__style.classList.remove('t-input-group'), numeration(newTitle))
         })
     })
    
