@@ -27,6 +27,11 @@ try {
     let title = quiz.querySelectorAll('.t-input-title:not(.isFrame-title)')
 
     const numeration = (title) => {
+        if (quiz.querySelectorAll('.step__wrap').length > 0){
+            quiz.querySelectorAll('.step__wrap').forEach((el)=>{
+                el.remove()
+            })
+        }
         title.forEach((e,i)=>{
             let div = document.createElement('div')
             div.classList.add('step__wrap')
