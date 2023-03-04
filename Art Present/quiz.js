@@ -292,9 +292,7 @@ try {
     
     step__style__text.forEach((el)=>{
         let text = el.innerHTML.split('-')
-        console.log(el)
-        console.log(text)
-        if (text.length > 0){
+        if (text.length > 1){
             el.innerHTML = `<div class="step__style__text">${text[0]}-<div class="price"> ${text[1]}</div></div>`
         }
     })
