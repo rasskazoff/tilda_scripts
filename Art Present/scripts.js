@@ -150,6 +150,30 @@ try {
 
 }catch(err){console.log(err)}
 
+// получаем параметр у кнопки и перемещаем его в атрибут
+try {
+    const buttons = document.querySelectorAll(`[href^="#popup"]`)
+    buttons.forEach((button)=>{
+        let button_params = button.getAttribute('href').split('=')
+        if (button_params.length > 1){
+            button.href = button_params[0]
+            button.dataset.params = button_params[1]
+        }
+    })
+}catch(err){console.log(err)}
+
+// передаем соданный параметр в форму
+try {
+    const buttons = document.querySelectorAll(`[data-params]`)
+    buttons.forEach((button)=>{
+        button.addEventListener('click', (el)=>{
+            let input = document.querySelector(`[data-tooltip-hook="${el.target.getAttribute('href')}"] form [name="Name"]`)
+            let params = el.target.dataset.params
+            input.value = params
+        })
+    })
+}catch(err){console.log(err)}
+
 // показать еще
 try {
     const more__hidden = document.querySelectorAll('.uc-more__hidden')
