@@ -167,7 +167,7 @@ try {
     const buttons = document.querySelectorAll(`[data-params]`)
     buttons.forEach((button)=>{
         button.addEventListener('click', (el)=>{
-            let input = document.querySelector(`[data-tooltip-hook="${el.target.getAttribute('href')}"] form [name="Name"]`)
+            let input = document.querySelector(`[data-tooltip-hook="${el.target.getAttribute('href')}"] form [name="params"]`)
             let params = el.target.dataset.params
             input.value = params
         })
