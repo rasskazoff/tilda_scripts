@@ -57,15 +57,17 @@ try {
 
     // скрываем стили портрета и делаем активным при выборе варианта "Арт портрет"
     let portrait_type = quiz.querySelectorAll('[name="Выберите тип портрета"]')
-    const isStep__style = quiz.querySelector('.step__style')
-    isStep__style.querySelector('.t-input-title').classList.add('isStep__style-title')
-    let newTitle = quiz.querySelectorAll('.t-input-title:not(.isFrame-title, isStep__style-title)')
+    const step__style = quiz.querySelector('[name="style"]').closest('.t-input-group')
+    step__style.classList.add('step__style')
+    
+    step__style.querySelector('.t-input-title').classList.add('step__style-title')
+    let newTitle = quiz.querySelectorAll('.t-input-title:not(.isFrame-title, .step__style-title)')
 
     portrait_type.forEach((el)=>{
         el.addEventListener('change',()=>{ 
             portrait_type[0].checked
-            ? (isStep__style.classList.add('t-input-group'), numeration(title))
-            : (isStep__style.classList.remove('t-input-group'), numeration(newTitle))
+            ? (step__style.classList.add('t-input-group'), numeration(title))
+            : (step__style.classList.remove('t-input-group'), numeration(newTitle))
         })
     })
    
@@ -304,8 +306,6 @@ try {
     document.documentElement.style.setProperty('--vh', `${vh}px`)
     
     // шаг выбора стиля //добавляем серый текст после тире
-    const step__style = quiz.querySelector('[name="style"]').closest('.t-input-group')
-    step__style.classList.add('step__style')
     const step__style__text = step__style.querySelectorAll('.t-img-select__text')
     
     step__style__text.forEach((el)=>{
