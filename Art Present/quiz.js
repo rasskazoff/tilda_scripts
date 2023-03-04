@@ -285,14 +285,16 @@ try {
     let vh = window.innerHeight * 0.01
     document.documentElement.style.setProperty('--vh', `${vh}px`)
     
-    // шаг выбора стиля
+    // шаг выбора стиля //добавляем серый текст после тире
     const step__style = quiz.querySelector('[name="style"]').closest('.t-input-group')
     step__style.classList.add('step__style')
     const step__style__text = step__style.querySelectorAll('.t-img-select__text')
     
     step__style__text.forEach((el)=>{
         let text = el.innerHTML.split('-')
-        el.innerHTML = `<div class="step__style__text">${text[0]}-<div class="price"> ${text[1]}</div></div>`
+        if (text.length > 0){
+            el.innerHTML = `<div class="step__style__text">${text[0]}-<div class="price"> ${text[1]}</div></div>`
+        }
     })
 
 
