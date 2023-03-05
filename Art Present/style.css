@@ -40,6 +40,9 @@
 .uc-menuMob{
 	opacity: 0;
 }
+.t-rec.uc-menuMob {
+    display: block;
+}
 .uc-menuMob.active{
 	opacity: 1;
 	position: fixed;
