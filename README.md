@@ -1,6 +1,7 @@
 # Скрипты для Tilda
 
-TILDA создать копию всех страниц
+## Команды для консоли
+####  Создать копию всех страниц tilda 
 let pages = document.querySelectorAll('.td-page')
 pages.forEach((page)=>{
     let page_id = page.id.replace(/[^+\d]/g, '')
